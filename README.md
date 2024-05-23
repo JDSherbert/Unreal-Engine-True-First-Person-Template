@@ -27,14 +27,14 @@
 
 -----------------------------------------------------------------------
 ## Overview
-True First Person refers to a perspective in video games where the player's viewpoint is exactly from the character's eyes, providing an immersive experience as if the player is seeing the game world directly through the character's eyes. This is in contrast to the traditional first-person view, which often only renders the character's hands and weapon, if any, without showing the rest of the body.
+True First Person refers to a perspective in video games where the player's viewpoint is exactly from the character's face, providing an immersive experience as if the player is seeing the game world directly through the character's eyes. This is in contrast to the traditional first-person view, which often only renders the character's hands and weapon, if any, without showing the rest of the body. This perspective is commonly used in AAA first person shooter titles - games such as Far Cry, Call Of Duty, Halo and Mirror's Edge.
 
 This template is a C++ project with Raytracing enabled.
 It's built on top of the Third Person Template, with some edits, as if it was a real True First Person implementation from Epic Games.
 
 This code creates the True First Person camera and attaches it to the head bone of the character mesh. 
 Note that we need to use a custom `FRotator()` because otherwise the camera will not be aligned correctly.
-We also set the location slightly forward on the Y axis so we cannot look down through our body.
+We also set the location slightly forward on the Y axis so we cannot look down through our own mesh.
 ```cpp
 // SherbertTFPTemplateCharacter.cpp //
 
@@ -46,8 +46,8 @@ TrueFirstPersonCamera->SetRelativeRotation(FRotator(0.0f, 90.0f, -90.0f));
 TrueFirstPersonCamera->bUsePawnControlRotation = true; // Camera rotates relative to pawn
 ```
 
-This is also important code because it allows the character to rotate with the camera.
-Otherwise, the camera rotates independently of the character which can disorienting.
+This is also important to disable Controller Rotation because it allows the character to rotate with the camera.
+Otherwise, the camera rotates independently of the character which can be disorienting.
 ```cpp
 // SherbertTFPTemplateCharacter.cpp //
 
