@@ -36,6 +36,8 @@ This code creates the True First Person camera and attaches it to the head bone 
 Note that we need to use a custom `FRotator()` because otherwise the camera will not be aligned correctly.
 We also set the location slightly forward on the Y axis so we cannot look down through our body.
 ```cpp
+// SherbertTFPTemplateCharacter.cpp //
+
 // Create a True First Person camera
 TrueFirstPersonCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("TrueFirstPersonCamera"));
 TrueFirstPersonCamera->SetupAttachment(GetMesh(), "Head");
@@ -47,6 +49,8 @@ TrueFirstPersonCamera->bUsePawnControlRotation = true; // Camera rotates relativ
 This is also important code because it allows the character to rotate with the camera.
 Otherwise, the camera rotates independently of the character which can disorienting.
 ```cpp
+// SherbertTFPTemplateCharacter.cpp //
+
 // Don't rotate when the controller rotates. Let that just affect the camera.
 bUseControllerRotationPitch = false;
 bUseControllerRotationYaw = true;
