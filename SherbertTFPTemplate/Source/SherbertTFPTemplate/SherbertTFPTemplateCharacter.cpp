@@ -48,6 +48,7 @@ ASherbertTFPTemplateCharacter::ASherbertTFPTemplateCharacter()
 	// Create a True First Person camera
 	TrueFirstPersonCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("TrueFirstPersonCamera"));
 	TrueFirstPersonCamera->SetupAttachment(GetMesh(), "Head");
+	TrueFirstPersonCamera->SetRelativeLocation(FVector(0.0f, 10.0f, 0.0f));
 	TrueFirstPersonCamera->SetRelativeRotation(FRotator(0.0f, 90.0f, -90.0f));
 	TrueFirstPersonCamera->bUsePawnControlRotation = true; // Camera rotates relative to pawn
 
