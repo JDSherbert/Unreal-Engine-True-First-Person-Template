@@ -24,8 +24,29 @@
 
 -----------------------------------------------------------------------
 ## Overview
-Some words about the project here-
+True First Person refers to a perspective in video games where the player's viewpoint is exactly from the character's eyes, providing an immersive experience as if the player is seeing the game world directly through the character's eyes. This is in contrast to the traditional first-person view, which often only renders the character's hands and weapon, if any, without showing the rest of the body.
 
+This template is a C++ project with Raytracing enabled.
+It's built on top of the Third Person Template, with some edits, as if it was a real True First Person implementation from Epic Games.
+
+This code creates the True First Person camera and attaches it to the head bone of the character mesh. 
+Note that we need to use a custom `FRotator()` because otherwise the camera will not be aligned correctly.
+```cpp
+// Create a True First Person camera
+TrueFirstPersonCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("TrueFirstPersonCamera"));
+TrueFirstPersonCamera->SetupAttachment(GetMesh(), "Head");
+TrueFirstPersonCamera->SetRelativeRotation(FRotator(0.0f, 90.0f, -90.0f));
+TrueFirstPersonCamera->bUsePawnControlRotation = true; // Camera rotates relative to pawn
+```
+
+This is also important code because it allows the character to rotate with the camera.
+Otherwise, the camera rotates independently of the character which can disorienting.
+```cpp
+// Don't rotate when the controller rotates. Let that just affect the camera.
+bUseControllerRotationPitch = false;
+bUseControllerRotationYaw = true;
+bUseControllerRotationRoll = false;
+```
 
 -----------------------------------------------------------------------
 
