@@ -1,4 +1,4 @@
-![image]()
+![image](https://github.com/JDSherbert/Unreal-Engine-True-First-Person-Template/assets/43964243/6d4c51f2-79da-48ea-a77d-13fc285e8df6)
 
 # Unreal Engine True First Person Template
 
@@ -31,10 +31,12 @@ It's built on top of the Third Person Template, with some edits, as if it was a 
 
 This code creates the True First Person camera and attaches it to the head bone of the character mesh. 
 Note that we need to use a custom `FRotator()` because otherwise the camera will not be aligned correctly.
+We also set the location slightly forward on the Y axis so we cannot look down through our body.
 ```cpp
 // Create a True First Person camera
 TrueFirstPersonCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("TrueFirstPersonCamera"));
 TrueFirstPersonCamera->SetupAttachment(GetMesh(), "Head");
+TrueFirstPersonCamera->SetRelativeLocation(FVector(0.0f, 10.0f, 0.0f));
 TrueFirstPersonCamera->SetRelativeRotation(FRotator(0.0f, 90.0f, -90.0f));
 TrueFirstPersonCamera->bUsePawnControlRotation = true; // Camera rotates relative to pawn
 ```
