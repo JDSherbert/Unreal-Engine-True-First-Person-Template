@@ -1,4 +1,4 @@
-// ©2024 JDSherbert. All rights reserved.
+// Â©2024 JDSherbert. All rights reserved.
 
 #include "SherbertTFPTemplateCharacter.h"
 
@@ -53,7 +53,7 @@ ASherbertTFPTemplateCharacter::ASherbertTFPTemplateCharacter()
 	TrueFirstPersonCamera->bUsePawnControlRotation = true; // Camera rotates relative to pawn
 
 	// Note: The skeletal mesh and anim blueprint references on the Mesh component (inherited from Character) 
-	// are set in the derived blueprint asset named ThirdPersonCharacter (to avoid direct content references in C++)
+	// are set in the derived blueprint asset named TrueFirstPersonCharacter (to avoid direct content references in C++)
 }
 
 /* ------------------------------------------------------------ */
